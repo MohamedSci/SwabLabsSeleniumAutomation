@@ -1,8 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: com.featheredteam.LogIn.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.845 s <<< FAILURE! - in com.featheredteam.LogIn.AppTest
-shouldAnswerWithTrue on shouldAnswerWithTrue(com.featheredteam.LogIn.AppTest)(com.featheredteam.LogIn.AppTest)  Time elapsed: 0.019 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "this.driver" is null
-	at com.featheredteam.LogIn.AppTest.shouldAnswerWithTrue(AppTest.java:40)
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.052 s <<< FAILURE! - in com.featheredteam.LogIn.AppTest
+shouldAnswerWithTrue on shouldAnswerWithTrue(com.featheredteam.LogIn.AppTest)(com.featheredteam.LogIn.AppTest)  Time elapsed: 0.067 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+invalid session id
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-86AGBNQ', ip: '192.168.9.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\muham\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51634}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c1bd51d3e916938f18fd70698635499b
+	at com.featheredteam.LogIn.AppTest.shouldAnswerWithTrue(AppTest.java:36)
 
