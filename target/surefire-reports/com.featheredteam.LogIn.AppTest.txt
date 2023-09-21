@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.featheredteam.LogIn.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.845 s <<< FAILURE! - in com.featheredteam.LogIn.AppTest
+shouldAnswerWithTrue on shouldAnswerWithTrue(com.featheredteam.LogIn.AppTest)(com.featheredteam.LogIn.AppTest)  Time elapsed: 0.019 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "this.driver" is null
+	at com.featheredteam.LogIn.AppTest.shouldAnswerWithTrue(AppTest.java:40)
+

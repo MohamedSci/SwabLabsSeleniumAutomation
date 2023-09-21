@@ -1,4 +1,4 @@
-package com.featheredteam;
+package com.featheredteam.LogIn;
 
 /**
  * Hello world!
