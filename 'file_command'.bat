@@ -1,0 +1,1 @@
+java -cp bin; 11b/ org.testng. TestNG testng.xml
