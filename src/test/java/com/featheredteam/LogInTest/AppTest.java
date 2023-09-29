@@ -1,4 +1,4 @@
-package com.featheredteam.LogIn;
+package com.featheredteam.LogInTest;
 
 import com.featheredteam.helper.ScreenShotGetter;
 import java.util.concurrent.TimeUnit;
