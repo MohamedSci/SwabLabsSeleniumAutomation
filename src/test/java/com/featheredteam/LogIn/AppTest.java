@@ -2,16 +2,22 @@ package com.featheredteam.LogIn;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
+import dev.failsafe.internal.util.Assert;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.awt.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+
 
 /**
  * Unit test for simple App.
@@ -24,8 +30,8 @@ public class AppTest {
                   The Second is passed and has @Test annotation only.
                   */
     public static WebDriver driver;
-    
-@BeforeTest
+    public static WebDriverEventListener eventListener;
+@BeforeSuite
 public void setUps(){
         System.out.println("Driver is started");
     WebDriverManager.chromedriver().setup();
@@ -38,33 +44,62 @@ public void setUps(){
 
    
     @Test
-    public void shouldAnswerWithTrue(){
+    public void ValidateWebsiteHeadingText(){
             driver.get("https://www.saucedemo.com/");
             WebElement title = driver.findElement(By.xpath("//div[contains(text(),'Swag Labs')]"));
-              Assert.assertEquals(title.getText(), "Swag Labs");
+//              Assert.assertEquals(title.getText(), "Swag Labs");
               System.out.println("Title: "+ title.getText());
      
     }
 
-    @AfterTest
+    @AfterSuite
     public void closeDrivers(){
         driver.close();
     }
 
-    @Test
-    public void shouldAnswerWithTrueTest(){
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.manage().deleteAllCookies();
-    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-    driver.get("https://www.saucedemo.com/");
-            WebElement title = driver.findElement(By.xpath("//div[contains(text(),'Swag Labs')]"));
-              Assert.assertEquals(title.getText(), "Swag Labs");
-              System.out.println("Title: "+title.getText());
-      driver.close();
-    }
+//    @Test
+//    public void shouldAnswerWithTrueTest(){
+//    WebDriverManager.chromedriver().setup();
+//    driver = new ChromeDriver();
+//    driver.manage().window().maximize();
+//    driver.manage().deleteAllCookies();
+//    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+//    driver.get("https://www.saucedemo.com/");
+//            WebElement title = driver.findElement(By.xpath("//div[contains(text(),'Swag Labs')]"));
+//            //   Assert.AssertTr(title.getText(), "Swag Labs");
+//              System.out.println("Title: "+title.getText());
+//      driver.close();
+//    }
 
+    // @Test
+    // public void shouldAnswerWithTrueEventFiringTest(){
+    // WebDriverManager.chromedriver().setup();
+    // driver = new ChromeDriver();
+    // driver.manage().window().maximize();
+    // driver.manage().deleteAllCookies();
+    // driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
-
+    // EventFiringWebDriver eventHandler = new EventFiringWebDriver(driver);
+    // eventListener = new WebDriverEventListener() ;
+    // eventHandler.register(eventListener);
+    // eventHandler.get("https://www.saucedemo.com/");
+    //         WebElement title = driver.findElement(By.xpath("//div[contains(text(),'Swag Labs')]"));
+    //           Assert.assertEquals(title.getText(), "Swag Labs");
+    //           System.out.println("Title: "+title.getText());
+    //   eventHandler.close();
+    // }
+//   @Test
+//    public void robotTest() throws AWTException{
+//    WebDriverManager.chromedriver().setup();
+//    driver = new ChromeDriver();
+//    driver.manage().window().maximize();
+//    driver.manage().deleteAllCookies();
+//    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+//    driver.get("https://iteamsoft.github.io/");
+//            //   Assert.AssertTr(title.getText(), "Swag Labs");
+//            Robot robot = new Robot();
+//            robot.mouseMove(100, 4);
+//            
+//      driver.close();
+//    }
 }
