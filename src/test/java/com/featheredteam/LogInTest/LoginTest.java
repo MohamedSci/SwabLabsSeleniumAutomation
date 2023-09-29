@@ -5,9 +5,7 @@
 package com.featheredteam.LogInTest;
 
 import static com.featheredteam.LogInTest.AppTest.driver;
-import java.awt.List;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -43,10 +41,28 @@ LoginPageLoad();
     Thread.sleep(3);
     Assert.assertTrue(getCurrentPageUrl().contains("inventory"));
            System.out.println("followingPageUrl ***************** "+ getCurrentPageUrl());
+           CanLogOut();
     }
 
     
-        @Test(priority = 3)
+            @Test(priority = 3)
+    public void AccessWithPerformance_glitch_user() throws InterruptedException{
+LoginPageLoad();
+
+   System.out.println("Valid User name is ***************** "+ getAllUserList()[4]);
+      System.out.println("Password is ***************** "+ getValidPassword());
+    getUserTextField().sendKeys(getAllUserList()[4]);
+    getPasswordTextField().sendKeys(getValidPassword());
+    getLogInBtn().click();
+    
+    Thread.sleep(3);
+    Assert.assertTrue(getCurrentPageUrl().contains("inventory"));
+           System.out.println("followingPageUrl ***************** "+ getCurrentPageUrl());
+           CanLogOut();
+    }
+    
+    
+        @Test(priority = 4)
     public void AccessWithLocked_out_user() throws InterruptedException{
 LoginPageLoad();
        System.out.println("Valid User name is ***************** "+ getAllUserList()[2]);
@@ -63,11 +79,14 @@ LoginPageLoad();
     Assert.assertTrue(getCurrentPageUrl().equals("https://www.saucedemo.com/"));
     Assert.assertTrue(errorMsg.equals("Epic sadface: Sorry, this user has been locked out."));
                System.out.println("errorMsg ***************** "+ errorMsg);
+               driver.navigate().refresh();
     }
-@Test(dependsOnMethods={"AccessWithStandard_user"})
+   
+    
+
     public void CanLogOut(){
-        menuDrawer().click();
-        logOutDrawer().click();
+        getMenuDrawer().click();
+        getlogOutDrawer().click();
             Assert.assertTrue(getCurrentPageUrl().equals("https://www.saucedemo.com/"));
 
     }
@@ -104,10 +123,10 @@ return passwordList[1];
         return driver.findElement(By.xpath("//input[@id=\"login-button\"]"));
     }
      
-       public WebElement menuDrawer() {
+       public WebElement getMenuDrawer() {
         return driver.findElement(By.xpath("//button[@id=\"react-burger-menu-btn\"]"));
     }
-          public WebElement logOutDrawer() {
+          public WebElement getlogOutDrawer() {
         return driver.findElement(By.xpath("//a[@id=\"logout_sidebar_link\"]"));
     }    
 
