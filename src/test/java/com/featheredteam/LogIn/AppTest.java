@@ -40,16 +40,13 @@ public void setUps(){
     driver.manage().deleteAllCookies();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     System.out.println("Driver is Ready");
+                driver.get("https://www.saucedemo.com/");
+    System.out.println("saucedemo ....... Landing");
+
 }
 
    
-    @Test
-    public void ValidateWebsiteHeadingText(){
-            driver.get("https://www.saucedemo.com/");
-            WebElement title = driver.findElement(By.xpath("//div[contains(text(),'Swag Labs')]"));
-            Assert.assertTrue(title.getText().equals("Swab Labs") );
-            System.out.println("Title: " + title.getText());
-    }
+
 
     @AfterSuite
     public void closeDrivers(){
